@@ -13,7 +13,7 @@
       "./mixins"
     ]
   },
-  "User": {
+  "Account": {
     "dataSource": "db"
   },
   "AccessToken": {
@@ -34,5 +34,33 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "Address": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Event": {
+    "dataSource": "db",
+    "public": true
+  },
+  "EventParticipant": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Group": {
+    "dataSource": "db",
+    "public": true
+  },
+  "GroupMember": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Container": {
+    "dataSource": "filestore",
+    "public": true
+  },
+  "Picture": {
+    "dataSource": "db",
+    "public": true
   }
 }

@@ -28,6 +28,16 @@ const ReactBoilerplate = {
         'ip',
         'minimist',
         'sanitize.css',
+        'cors',
+        'helmet',
+        'serve-favicon',
+        'strong-error-handler',
+        'loopback-boot',
+        'loopback-component-explorer',
+        'loopback-component-storage',
+        'loopback-connector-mysql',
+        'loopback',
+        'prompt',
       ],
 
       /**
