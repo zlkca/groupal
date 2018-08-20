@@ -14,4 +14,12 @@ export default defineMessages({
     id: 'boilerplate.components.Header.features',
     defaultMessage: 'Features',
   },
+  groups: {
+    id: 'boilerplate.components.Header.groups',
+    defaultMessage: 'Groups',
+  },
+  events: {
+    id: 'boilerplate.components.Header.events',
+    defaultMessage: 'Events',
+  },
 });
