@@ -14,6 +14,8 @@ import { Switch, Route } from 'react-router-dom';
 import HomePage from 'containers/HomePage/Loadable';
 import FeaturePage from 'containers/FeaturePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import GroupPage from 'containers/GroupForm/Loadable';
+import EventPage from 'containers/EventForm/Loadable';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 
@@ -39,6 +41,8 @@ export default function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/features" component={FeaturePage} />
+        <Route path="/groups" component={GroupPage} />
+        <Route path="/events" component={EventPage} />
         <Route path="" component={NotFoundPage} />
       </Switch>
       <Footer />
