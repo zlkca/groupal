@@ -2,8 +2,8 @@
   "db": {
     "host": "localhost",
     "port": 3306,
-    "url": "mysql://root:root@localhost:3306/star",
-    "database": "star",
+    "url": "mysql://root:root@localhost:3306/groupal",
+    "database": "groupal",
     "password": "root",
     "name": "db",
     "user": "root",
