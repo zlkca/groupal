@@ -1,0 +1,38 @@
+{
+  "name": "Account",
+  "base": "User",
+  "idInjection": true,
+  "properties": {
+    "type": {
+      "type": "string",
+      "required": true,
+      "default": "user"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "ownedGroups": {
+      "type": "hasMany",
+      "model": "Group",
+      "foreignKey": "ownerId"
+    },
+    "groupMembers": {
+      "type": "hasMany",
+      "model": "GroupMember",
+      "foreignKey": "userId"
+    },
+    "eventParticipants": {
+      "type": "hasMany",
+      "model": "EventParticipant",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "super",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": []
+}

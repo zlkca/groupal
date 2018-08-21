@@ -24,3 +24,4 @@ stats.json
 coverage
 node_modules
 npm-debug.log
+/server/datasources.development.json

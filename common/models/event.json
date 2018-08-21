@@ -1,0 +1,52 @@
+{
+  "name": "Event",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "groupId": {
+      "type": "number",
+      "required": true
+    },
+    "startDateTime": {
+      "type": "date"
+    },
+    "created": {
+      "type": "date",
+      "defaultFn": "now"
+    },
+    "modified": {
+      "type": "date",
+      "defaultFn": "now"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "group": {
+      "type": "belongsTo",
+      "model": "Group",
+      "foreignKey": "groupId"
+    },
+    "participants": {
+      "type": "hasMany",
+      "model": "EventParticipant",
+      "foreignKey": "eventId"
+    },
+    "pictures": {
+      "type": "hasMany",
+      "model": "Picture",
+      "polymorphic": "imageable"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

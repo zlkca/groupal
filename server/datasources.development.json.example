@@ -8,11 +8,5 @@
     "name": "db",
     "user": "root",
     "connector": "mysql"
-  },
-  "filestore": {
-    "connector": "loopback-component-storage",
-    "provider": "filesystem",
-    "root": "uploads",
-    "nameConflict": "makeUnique"
   }
 }

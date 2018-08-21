@@ -1,0 +1,53 @@
+{
+  "name": "Group",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "ownerId": {
+      "type": "number"
+    },
+    "created": {
+      "type": "date",
+      "defaultFn": "now"
+    },
+    "modified": {
+      "type": "date",
+      "defaultFn": "now"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "owner": {
+      "type": "belongsTo",
+      "model": "Account",
+      "foreignKey": "ownerId"
+    },
+    "events": {
+      "type": "hasMany",
+      "model": "Event",
+      "foreignKey": "groupId"
+    },
+    "members": {
+      "type": "hasMany",
+      "model": "GroupMember",
+      "foreignKey": "groupId"
+    },
+    "pictures": {
+      "type": "hasMany",
+      "model": "Picture",
+      "polymorphic": "imageable"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
