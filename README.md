@@ -6,7 +6,7 @@
 1.  Make sure that you have Node v8 or above installed.
 2.  Clone this repo.
 3.  go to server folder, copy `datasources.development.json.example` paste and rename as `datasources.development.json`, edit it edit it to match your db setup<br />
-4.  Run `yarn install` to install a the dependencies.<br />
+4.  Run `yarn install` to install a the dependencies. If you don't have yarn, run `npm install -g yarn` to install it.<br />
 5.  In MySQL Workbench, execute `CREATE DATABASE groupal`<br />
 6.  At this point you can run `npm start` to start the app at `http://localhost:3000`. You will be prompt to reset and populate db (choose y) or sync db changes (choose n).
 
