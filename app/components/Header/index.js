@@ -26,8 +26,8 @@ class Header extends React.Component {
           <HeaderLink to="/groups">
             <FormattedMessage {...messages.groups} />
           </HeaderLink>
-          <HeaderLink to="/events">
-            <FormattedMessage {...messages.events} />
+          <HeaderLink to="/admin">
+            <FormattedMessage {...messages.admin} />
           </HeaderLink>
         </NavBar>
       </div>
