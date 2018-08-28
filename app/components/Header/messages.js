@@ -22,4 +22,8 @@ export default defineMessages({
     id: 'boilerplate.components.Header.events',
     defaultMessage: 'Events',
   },
+  admin: {
+    id: 'boilerplate.components.Header.admin',
+    defaultMessage: 'Admin',
+  },
 });
