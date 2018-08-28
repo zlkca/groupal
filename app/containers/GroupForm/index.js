@@ -7,6 +7,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
@@ -20,6 +21,15 @@ import './style.scss';
 import Img from './Img';
 import logo from '../../images/icon-512x512.png';
 
+const AppWrapper = styled.div`
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  min-height: 100%;
+  padding: 0 16px;
+  flex-direction: column;
+`;
+
 /* eslint-disable react/prefer-stateless-function */
 export class GroupForm extends React.Component {
   group = {
@@ -30,105 +40,148 @@ export class GroupForm extends React.Component {
     description: 'The best party ever in Toronto!',
   };
 
-  event = {
-    name: 'Overnight Parthy',
-    desctiption: 'Awsome Party in Toronto!',
-    address: '5650 Yonge Street',
-    dateTime: '2018-09-01 \t 17:30',
-  };
+  // event = {
+  //   name: 'Overnight Parthy',
+  //   desctiption: 'Awsome Party in Toronto!',
+  //   address: '5650 Yonge Street',
+  //   dateTime: '2018-09-01 \t 17:30',
+  // };
 
-  // events = [{
-  //   name: 'Overnight Parthy',
-  //   desctiption: 'Awsome Party in Toronto!',
-  //   address: '5650 Yonge Street',
-  //   dateTime: '2018-09-01 \t 17:30',
-  // }, {
-  //   name: 'Overnight Parthy',
-  //   desctiption: 'Awsome Party in Toronto!',
-  //   address: '5650 Yonge Street',
-  //   dateTime: '2018-09-01 \t 17:30',
-  // }];
+  events = [
+    {
+      name: 'Overnight Parthy',
+      desctiption: 'Awsome Party in Toronto!',
+      address: '5650 Yonge Street',
+      dateTime: '2018-09-01 \t 17:30',
+    },
+    {
+      name: 'Overnight Parthy',
+      desctiption: 'Awsome Party in Toronto!',
+      address: '5650 Yonge Street',
+      dateTime: '2018-09-01 \t 17:30',
+    },
+  ];
+
+  // Assume user already joined the group and all the events
+  groupJoined = false;
+  eventJoined = false;
 
   render() {
     return (
-      <div>
-        <Helmet>
-          <title>GroupForm</title>
-          <meta name="description" content="Description of GroupForm" />
-        </Helmet>
-        <div className="container">
-          <div className="row group-info border-bottom">
-            <div className="col-2">
-              <Img name="logo" src={logo} alt="User Logo" />
-            </div>
-            <div className="col-3 detail">
-              <div>Group Title: {this.group.title}</div>
-              <div>Owner: {this.group.name}</div>
-              <div>Create Date: {this.group.date}</div>
-              <div>Members: {this.group.member}</div>
-            </div>
-            <div className="col-5 description">
-              Description:
-              <div>{this.group.description}</div>
-            </div>
-            <div className="col-2 buttons">
-              <div>
-                <button type="button" className="btn btn-sm btn-primary">
-                  Join Group
-                </button>
+      <AppWrapper>
+        <div>
+          <Helmet>
+            <title>GroupForm</title>
+            <meta name="description" content="Description of GroupForm" />
+          </Helmet>
+          <div className="container">
+            <div className="row group-info border-bottom">
+              <div className="col-2">
+                <Img name="logo" src={logo} alt="User Logo" />
               </div>
-              <div>
-                {/* <button type="button" className="btn btn-sm btn-primary">Quit Group</button> */}
-              </div>
-            </div>
-          </div>
-          <div className="row event-list">
-            <div className="row">
-              <div className="col list-title">Coming Events:</div>
-            </div>
-            <div className="row eventBlock border-bottom">
-              <div className="col-5">
-                <div className="row">
-                  <div className="eventLeft">Event: {this.event.name}</div>
+              <div className="col-4 detail">
+                <div>
+                  <b>Group Title:</b> {this.group.title}
                 </div>
-                <div className="row">
-                  <div className="eventLeft">Address: {this.event.address}</div>
+                <div>
+                  <b>Owner:</b> {this.group.name}
                 </div>
-                <div className="row">
-                  <div className="eventRight">
-                    Date and Time: {this.event.dateTime}
-                  </div>
+                <div>
+                  <b>Create Date:</b> {this.group.date}
+                </div>
+                <div>
+                  <b>Members:</b> {this.group.member}
                 </div>
               </div>
-              <div className="col-5">
-                <div className="eventRight">
-                  Description: {this.event.desctiption}
-                </div>
+              <div className="col-4 description">
+                <b>Description:</b>
+                <div>{this.group.description}</div>
               </div>
               <div className="col-2 buttons">
-                <button type="button" className="btn btn-sm btn-primary">
-                  Join
-                </button>
-                {/* <button type="button" className="btn btn-sm btn-primary">Quit</button> */}
+                <div>
+                  <button type="button" className="btn btn-sm btn-primary">
+                    {groupChange(this.groupJoined)}
+                  </button>
+                </div>
               </div>
+            </div>
+            <div className="row event-list">
+              <div className="row">
+                <div className="col list-title">Coming Events:</div>
+              </div>
+              {getEvents(this.events, this.eventJoined)}
             </div>
           </div>
         </div>
-      </div>
+      </AppWrapper>
     );
   }
 }
 
-// function getEvents(events) {
-//   newEvents = [];
+function groupChange(state) {
+  let newState = '';
 
-//   for (let i = 0; i < events.length; i++) {
-//     template = 0;
-//     newEvents.push(template);
-//   }
+  if (state) {
+    newState = 'Join Group';
+  } else {
+    newState = 'Quit Group';
+  }
 
-//   return newEvents;
-// }
+  return newState;
+}
+
+function eventChange(state) {
+  let newState = '';
+
+  if (state) {
+    newState = 'Join';
+  } else {
+    newState = 'Quit';
+  }
+
+  return newState;
+}
+
+function getEvents(events, state) {
+  const eventList = [];
+
+  for (let i = 0; i < events.length; i += 1) {
+    eventList.push([
+      <div key={i + 1} className="row eventBlock border-bottom">
+        <div className="col-5">
+          <div className="row">
+            <div>
+              <b>Event:</b> {events[i].name}
+            </div>
+          </div>
+          <div className="row">
+            <div>
+              <b>Address:</b> {events[i].address}
+            </div>
+          </div>
+          <div className="row">
+            <div>
+              <b>Date and Time:</b> {events[i].dateTime}
+            </div>
+          </div>
+        </div>
+        <div className="col-5">
+          <div>
+            <b>Description:</b>
+            <div>{events[i].desctiption}</div>
+          </div>
+        </div>
+        <div className="col-2 buttons">
+          <button type="button" className="btn btn-sm btn-primary">
+            {eventChange(state)}
+          </button>
+        </div>
+      </div>,
+    ]);
+  }
+
+  return eventList;
+}
 
 GroupForm.propTypes = {
   // dispatch: PropTypes.func.isRequired,

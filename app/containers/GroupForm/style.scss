@@ -33,6 +33,7 @@
 .list-title {
   font-size: 30px;
   margin-bottom: 20px;
+  margin-left: 50px;
 }
 
 .event-list {
@@ -42,25 +43,7 @@
 }
 
 .eventBlock {
-  width: 100%;
-  height: 80px;
-  margin-top: 1px;
-  margin-bottom: 1px;
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
-.eventInfo {
-  width: 500px;
-  height: 80px;
-}
-
-.eventLeft {
-  width: auto;
-  height: 20px;
-}
-
-.eventRight {
-  width: auto;
-  height: 20px;
+  width: 80%;
+  height: 90px;
+  margin: 0 10%;
 }
