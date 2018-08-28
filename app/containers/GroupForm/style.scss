@@ -1,0 +1,49 @@
+.group-info {
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.detail {
+  width: 30%;
+  height: 120px;
+  margin-left: -20px;
+}
+
+.description {
+  width: 30%;
+  height: 120px;
+  margin-left: -20px;
+}
+
+.buttons {
+  height: 10px;
+  .btn {
+    width: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+}
+
+.list-title {
+  font-size: 30px;
+  margin-bottom: 20px;
+  margin-left: 50px;
+}
+
+.event-list {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.eventBlock {
+  width: 80%;
+  height: 90px;
+  margin: 0 10%;
+}
