@@ -162,15 +162,7 @@ export class EventForm extends React.Component {
 }
 
 function stateChanged(state) {
-  let newState = '';
-
-  if (state) {
-    newState = 'Join';
-  } else {
-    newState = 'Quit';
-  }
-
-  return newState;
+  return state ? 'Join' : 'Quit';
 }
 
 EventForm.propTypes = {

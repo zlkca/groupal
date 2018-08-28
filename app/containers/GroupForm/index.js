@@ -119,27 +119,11 @@ export class GroupForm extends React.Component {
 }
 
 function groupChange(state) {
-  let newState = '';
-
-  if (state) {
-    newState = 'Join Group';
-  } else {
-    newState = 'Quit Group';
-  }
-
-  return newState;
+  return state ? 'Join Group' : 'Quit Group';
 }
 
 function eventChange(state) {
-  let newState = '';
-
-  if (state) {
-    newState = 'Join';
-  } else {
-    newState = 'Quit';
-  }
-
-  return newState;
+  return state ? 'Join' : 'Quit';
 }
 
 function getEvents(events, state) {
