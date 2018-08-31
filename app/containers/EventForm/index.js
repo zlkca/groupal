@@ -24,7 +24,7 @@ import Map from '../../components/Map';
 
 const AppWrapper = styled.div`
   max-width: 100%;
-  margin: 0 10%;
+  margin: 0 auto;
   display: flex;
   min-height: 100%;
   padding: 0 16px;
@@ -99,7 +99,7 @@ export class EventForm extends React.Component {
                 </div>
                 <div className="row">
                   <div className="col">
-                    <div className="row members" name="number of member">
+                    <div className="row members mb-2" name="number of member">
                       There are <b>{this.event.member}</b> people already
                       joined!
                     </div>
@@ -123,7 +123,7 @@ export class EventForm extends React.Component {
                   <Map>This is the map!</Map>
                 </div>
                 <div className="title">Previous Event:</div>
-                <div className="row mb-2" name="previous event">
+                <div className="row mb-2 border-bottom" name="previous event">
                   <div className="col">
                     <div>
                       <b>Event:</b> {this.previous.name}
@@ -138,7 +138,7 @@ export class EventForm extends React.Component {
                   </div>
                 </div>
                 <div className="title">Next Event:</div>
-                <div className="row mb-2" name="next events">
+                <div className="row mb-2 border-bottom" name="next events">
                   <div className="col">
                     <div>
                       <b>Event:</b> {this.next.name}

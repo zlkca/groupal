@@ -131,7 +131,7 @@ function getEvents(events, state) {
 
   for (let i = 0; i < events.length; i += 1) {
     eventList.push([
-      <div key={i + 1} className="row eventBlock border-bottom">
+      <div key={i + 1} className="row eventBlock border-bottom mb-2">
         <div className="col-5">
           <div className="row">
             <div>

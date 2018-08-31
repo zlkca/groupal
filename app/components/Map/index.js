@@ -19,9 +19,9 @@ const MyMap = compose(
   withProps({
     googleMapURL:
       'https://maps.googleapis.com/maps/api/js?key=AIzaSyAaWjAzEuq4oJQLyGMdNwut13ISuLvkibk&v=3.exp&libraries=geometry,drawing,places',
-    loadingElement: <div style={{ width: `300px`, height: `300px` }} />,
-    containerElement: <div style={{ width: `300px`, height: `300px` }} />,
-    mapElement: <div style={{ width: `300px`, height: `300px` }} />,
+    loadingElement: <div style={{ width: `300px`, height: `250px` }} />,
+    containerElement: <div style={{ width: `300px`, height: `250px` }} />,
+    mapElement: <div style={{ width: `300px`, height: `250px` }} />,
   }),
   withScriptjs,
   withGoogleMap,
@@ -49,13 +49,13 @@ class Map extends React.Component {
   delayedShowMarker = () => {
     setTimeout(() => {
       this.setState({ isMarkerShown: true });
-    }, 3000);
+    }, 0);
   };
 
-  handleMarkerClick = () => {
-    this.setState({ isMarkerShown: false });
-    this.delayedShowMarker();
-  };
+  // handleMarkerClick = () => {
+  //   this.setState({ isMarkerShown: false });
+  //   this.delayedShowMarker();
+  // };
 
   render() {
     return (
