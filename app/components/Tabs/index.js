@@ -11,6 +11,7 @@ import PropTypes from 'prop-types';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
 import Tab from '../Tab';
+import TabContent from '../TabContent';
 
 /* eslint-disable react/prefer-stateless-function */
 function Tabs(props) {
@@ -26,7 +27,7 @@ function Tabs(props) {
         id={item.id}
         aria-labelledby={`${item.id}-tab`}
       >
-        {item.name}
+        <TabContent item={item}>{item.name}</TabContent>
       </div>
     ));
   } else {
@@ -42,26 +43,6 @@ function Tabs(props) {
       <div>{content}</div>
     </div>
   );
-
-  // return (
-  //   <div>
-  //     <ul className="nav nav-tabs" id="myTab" role="tablist">
-  //       {/* <Tab></Tab> */}
-  //       <li className="nav-item">
-  //         <a
-  //           className="nav-link"
-  //           data-toggle="tab"
-  //           role="tab"
-  //           id="events-tab"
-  //           aria-controls="events" aria-selectec="true" href="#events">Events</a>
-  //       </li>
-  //     </ul>
-  //     <div className="tab-content" id="myTabContent">
-  //       <div className="tab-pane fade show active" id="groups" role="tabpanel" aria-labelledby="groups-tab">Groups</div>
-  //       <div className="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">Events</div>
-  //     </div>
-  //   </div>
-  // );
 }
 
 Tabs.propTypes = {
