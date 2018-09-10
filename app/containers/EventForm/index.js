@@ -33,29 +33,34 @@ const AppWrapper = styled.div`
 
 /* eslint-disable react/prefer-stateless-function */
 export class EventForm extends React.Component {
-  event = {
-    name: 'Party',
-    owner: 'James',
-    address: '123 Yonge Street',
-    description: 'Awsome parthy all over the world!',
-    member: 10,
-  };
+  currentEvent = 1;
 
-  previous = {
-    name: 'Party',
-    owner: 'James',
-    address: '123 Yonge Street',
-    description: 'Awsome parthy all over the world!',
-    member: 10,
-  };
-
-  next = {
-    name: 'Party',
-    owner: 'James',
-    address: '123 Yonge Street',
-    description: 'Awsome parthy all over the world!',
-    member: 10,
-  };
+  events = [
+    {
+      id: 1,
+      name: 'Party',
+      owner: 'James',
+      address: '123 Yonge Street',
+      description: 'Awsome parthy all over the world!',
+      member: 10,
+    },
+    {
+      id: 2,
+      name: 'Party',
+      owner: 'James',
+      address: '123 Yonge Street',
+      description: 'Awsome parthy all over the world!',
+      member: 10,
+    },
+    {
+      id: 3,
+      name: 'Party',
+      owner: 'James',
+      address: '123 Yonge Street',
+      description: 'Awsome parthy all over the world!',
+      member: 10,
+    },
+  ];
 
   // location = getLocation(this.event.address);
 
@@ -81,27 +86,27 @@ export class EventForm extends React.Component {
                   </div>
                   <div className="col-4">
                     <div>
-                      <b>Event:</b> {this.event.name}
+                      <b>Event:</b> {this.events[this.currentEvent].name}
                     </div>
                     <div>
-                      <b>Organizer:</b> {this.event.owner}
+                      <b>Organizer:</b> {this.events[this.currentEvent].owner}
                     </div>
                     <div>
-                      <b>Address:</b> {this.event.address}
+                      <b>Address:</b> {this.events[this.currentEvent].address}
                     </div>
                   </div>
                   <div className="col-6">
                     <div>
                       <b>Description:</b>
-                      <div>{this.event.description}</div>
+                      <div>{this.events[this.currentEvent].description}</div>
                     </div>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col">
                     <div className="row members mb-2" name="number of member">
-                      There are <b>{this.event.member}</b> people already
-                      joined!
+                      There are <b>{this.events[this.currentEvent].member}</b>
+                      people already joined!
                     </div>
                     <div className="row avatars" name="member avatar">
                       <img src={logo} alt="user avatar" className="avatar" />
@@ -123,35 +128,9 @@ export class EventForm extends React.Component {
                   <Map>This is the map!</Map>
                 </div>
                 <div className="title">Previous Event:</div>
-                <div className="row mb-2 border-bottom" name="previous event">
-                  <div className="col">
-                    <div>
-                      <b>Event:</b> {this.previous.name}
-                    </div>
-                    <div>
-                      <b>Address:</b> {this.previous.address}
-                    </div>
-                  </div>
-                  <div className="col">
-                    <b>Description:</b>
-                    <div>{this.previous.description}</div>
-                  </div>
-                </div>
+                {getPrevious(this.events, this.currentEvent)}
                 <div className="title">Next Event:</div>
-                <div className="row mb-2 border-bottom" name="next events">
-                  <div className="col">
-                    <div>
-                      <b>Event:</b> {this.next.name}
-                    </div>
-                    <div>
-                      <b>Address:</b> {this.next.address}
-                    </div>
-                  </div>
-                  <div className="col">
-                    <b>Description:</b>
-                    <div>{this.next.description}</div>
-                  </div>
-                </div>
+                {getNext(this.events, this.currentEvent)}
               </div>
             </div>
           </div>
@@ -163,6 +142,64 @@ export class EventForm extends React.Component {
 
 function stateChanged(state) {
   return state ? 'Join' : 'Quit';
+}
+
+function getPrevious(events, currentEvent) {
+  let previous;
+  if (currentEvent === 1) {
+    previous = (
+      <div className="row mb-2 border-bottom" name="previous event">
+        <div className="col">
+          <div>
+            <b>Event:</b> {events[currentEvent - 1].name}
+          </div>
+          <div>
+            <b>Address:</b> {events[currentEvent - 1].address}
+          </div>
+        </div>
+        <div className="col">
+          <b>Description:</b>
+          <div>{events[currentEvent - 1].description}</div>
+        </div>
+      </div>
+    );
+  } else {
+    previous = (
+      <div className="mb-2 border-bottom" name="previous event">
+        No previous event!
+      </div>
+    );
+  }
+  return previous;
+}
+
+function getNext(events, currentEvent) {
+  let next;
+  if (currentEvent === 2) {
+    next = (
+      <div className="mb-2 border-bottom" name="next event">
+        No next event!
+      </div>
+    );
+  } else {
+    next = (
+      <div className="row mb-2 border-bottom" name="next event">
+        <div className="col">
+          <div>
+            <b>Event:</b> {events[currentEvent + 1].name}
+          </div>
+          <div>
+            <b>Address:</b> {events[currentEvent + 1].address}
+          </div>
+        </div>
+        <div className="col">
+          <b>Description:</b>
+          <div>{events[currentEvent + 1].description}</div>
+        </div>
+      </div>
+    );
+  }
+  return next;
 }
 
 EventForm.propTypes = {

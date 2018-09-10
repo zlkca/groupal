@@ -49,12 +49,14 @@ export class GroupForm extends React.Component {
 
   events = [
     {
+      id: 1,
       name: 'Overnight Parthy',
       desctiption: 'Awsome Party in Toronto!',
       address: '5650 Yonge Street',
       dateTime: '2018-09-01 \t 17:30',
     },
     {
+      id: 2,
       name: 'Overnight Parthy',
       desctiption: 'Awsome Party in Toronto!',
       address: '5650 Yonge Street',
@@ -127,44 +129,38 @@ function eventChange(state) {
 }
 
 function getEvents(events, state) {
-  const eventList = [];
-
-  for (let i = 0; i < events.length; i += 1) {
-    eventList.push([
-      <div key={i + 1} className="row eventBlock border-bottom mb-2">
-        <div className="col-5">
-          <div className="row">
-            <div>
-              <b>Event:</b> {events[i].name}
-            </div>
-          </div>
-          <div className="row">
-            <div>
-              <b>Address:</b> {events[i].address}
-            </div>
-          </div>
-          <div className="row">
-            <div>
-              <b>Date and Time:</b> {events[i].dateTime}
-            </div>
-          </div>
-        </div>
-        <div className="col-5">
+  return events.map(event => (
+    <div key={event.id} className="row eventBlock border-bottom mb-2">
+      <div className="col-5">
+        <div className="row">
           <div>
-            <b>Description:</b>
-            <div>{events[i].desctiption}</div>
+            <b>Event:</b> {event.name}
           </div>
         </div>
-        <div className="col-2 buttons">
-          <button type="button" className="btn btn-sm btn-primary">
-            {eventChange(state)}
-          </button>
+        <div className="row">
+          <div>
+            <b>Address:</b> {event.address}
+          </div>
         </div>
-      </div>,
-    ]);
-  }
-
-  return eventList;
+        <div className="row">
+          <div>
+            <b>Date and Time:</b> {event.dateTime}
+          </div>
+        </div>
+      </div>
+      <div className="col-5">
+        <div>
+          <b>Description:</b>
+          <div>{event.desctiption}</div>
+        </div>
+      </div>
+      <div className="col-2 buttons">
+        <button type="button" className="btn btn-sm btn-primary">
+          {eventChange(state)}
+        </button>
+      </div>
+    </div>
+  ));
 }
 
 GroupForm.propTypes = {
