@@ -1,5 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
+import { Redirect } from 'react-router-dom';
 
 import A from './A';
 import Img from './Img';
@@ -23,9 +24,9 @@ class Header extends React.Component {
           <HeaderLink to="/features">
             <FormattedMessage {...messages.features} />
           </HeaderLink>
-          <HeaderLink to="/groups">
-            <FormattedMessage {...messages.groups} />
-          </HeaderLink>
+          <Redirect to="/group-form" />
+          {/* <FormattedMessage {...messages.groups} /> */}
+
           <HeaderLink to="/admin">
             <FormattedMessage {...messages.admin} />
           </HeaderLink>
