@@ -1,5 +1,5 @@
-<div align="center"><strong>Groupal</strong></div>
-<br />
+# Groupal
+Groupal is a social media website base on loopback, react.
 
 ## Quick start
 
@@ -13,6 +13,9 @@
 Now you're ready to rumble!
 
 ## Development
+
+refer: https://github.com/mean-expert-official/loopback-sdk-builder/wiki
+
 use `npm run generate` to generate new files
 
 > Please note that this boilerplate is **production-ready and not meant for beginners**! If you're just starting out with react or redux, please refer to https://github.com/petehunt/react-howto instead. If you want a solid, battle-tested base to build your next product upon and have some experience with react, this is the perfect start for you.
